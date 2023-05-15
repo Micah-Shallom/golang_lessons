@@ -1,6 +1,7 @@
 package main
 
 import "fmt"
+
 const secondsInHour = 3600
 
 func main() {
