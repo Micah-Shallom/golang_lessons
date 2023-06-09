@@ -114,15 +114,29 @@ func main() {
 	ss1 := []int{10, 20, 30, 40, 50}
 	newSlice := ss1[0:3]
 	fmt.Println(len(newSlice), cap(newSlice)) // 3 5
- 
+
 	newSlice = ss1[2:5]
 	fmt.Println(len(newSlice), cap(newSlice)) // 3 3
 
 	fmt.Printf("%p, %p\n", &ss1, &newSlice)
 
-	ar := [5]int{1,2,3,4,5}
-	sl := []int{1,2,3,4,5}
+	ar := [5]int{1, 2, 3, 4, 5}
+	sl := []int{1, 2, 3, 4, 5}
 	fmt.Printf("array size in byte %d \n", unsafe.Sizeof(ar))
 	fmt.Printf("slice size in byte %d \n", unsafe.Sizeof(sl))
+
+	var num []int
+	fmt.Printf("Length: %d , Capactiy: %d \n", len(num),cap(num))
+	
+	num = append(num, 10, 20)
+	fmt.Printf("Length: %d , Capactiy: %d \n", len(num),cap(num))
+	num = append(num, 30)
+	fmt.Printf("Length: %d , Capactiy: %d \n", len(num),cap(num))
+	num = append(num, 40)
+	fmt.Printf("Length: %d , Capactiy: %d \n", len(num),cap(num))
+	num = append(num, 50)
+	fmt.Printf("Length: %d , Capactiy: %d \n", len(num),cap(num))
+	num = append(num[0:4], 60,70,80,90,100)
+	fmt.Printf("Length: %d , Capactiy: %d \n", len(num),cap(num))
 
 }
