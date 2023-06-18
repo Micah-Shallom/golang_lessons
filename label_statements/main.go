@@ -10,7 +10,7 @@ outer:
 	for index, name := range people {
 		for _, friend := range friends {
 			if name == friend {
-				fmt.Printf("Found a friend %d at index %s\n", index, friend)
+				fmt.Printf("Found a friend %s at index %d\n", friend, index)
 				break outer
 			}
 		}

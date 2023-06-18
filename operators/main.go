@@ -46,7 +46,7 @@ func main(){
 
 	distanceInMiles = mile(parisToLondon) / 0.621
 
-	fmt.Print(distanceInMiles)
+	fmt.Println(distanceInMiles)
 
 	type second = uint
 

@@ -46,6 +46,7 @@ func main() {
 	}
 
 	fmt.Printf("%T\n",balances)
+	fmt.Println(balances)
 
 	// STRUCT TYPE
 	type Person struct{

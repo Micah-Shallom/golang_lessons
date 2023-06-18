@@ -2,6 +2,14 @@ package main
 
 import "fmt"
 
+func stringsExercise(){
+	var name = "Shallom"
+	country := "Nigeria"
+	fmt.Printf("Your name: %s\nCountry: %s\n",name,country)
+	fmt.Println(`he says: "Hello"`)
+	fmt.Println(`C:\Users\a.txt`)
+}
+
 func exercise() {
 	nums := []int{5, -1, 9, 10, 1100, 6, -1, 6}
 	newnums := nums[2 : len(nums)-2]
@@ -32,5 +40,6 @@ func exercise() {
 }
 
 func main() {
+	stringsExercise()
 	exercise()
 }
