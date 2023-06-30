@@ -1,45 +1,33 @@
 package main
 
-import "fmt"
+import (
+	// "fmt"
+	"io/ioutil"
+	"log"
+	"os"
+)
 
-func stringsExercise(){
-	var name = "Shallom"
-	country := "Nigeria"
-	fmt.Printf("Your name: %s\nCountry: %s\n",name,country)
-	fmt.Println(`he says: "Hello"`)
-	fmt.Println(`C:\Users\a.txt`)
-}
-
-func exercise() {
-	nums := []int{5, -1, 9, 10, 1100, 6, -1, 6}
-	newnums := nums[2 : len(nums)-2]
-	sums := 0
-
-	for _, v := range newnums {
-		sums += v
+func main(){
+	file, err := os.OpenFile(
+		"z.txt",
+		os.O_APPEND | os.O_CREATE | os.O_WRONLY,
+		0644,
+	)
+	if err != nil {
+		log.Fatal(err)
 	}
-	fmt.Println(sums)
-	//----------------------------------------------------------
-	friends := []string{"Marry", "John", "Paul", "Diana"}
-	newfriends := make([]string, len(friends))
-	copy(newfriends, friends)
-	newfriends[1] = "Shallom"
-	fmt.Println(friends, newfriends)
-	//----------------------------------------------------------
-	people := []string{"Marry", "John", "Paul", "Diana"}
-	yourpeople := []string{}
-	yourpeople = append(yourpeople, people...)
+	defer file.Close()
 
-	yourpeople[3] = "Shallom"
-	fmt.Println(people, yourpeople)
-	//----------------------------------------------------------
-	years := []int{2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010}
-	newYears := []int{}
-	newYears = append(years[:3], years[len(years)-3:]...)
-	fmt.Println(newYears)
-}
+	byteSlice := []byte("My name is Shallom")
+	byteWritten, err := file.Write(byteSlice)
+	if err != nil {
+		log.Fatal(err)
+	}
+	log.Printf("The number of written bytes are: %d\n", byteWritten)
 
-func main() {
-	stringsExercise()
-	exercise()
+	bs := []byte("Go programming is cool i swear")
+	err = ioutil.WriteFile("y.txt", bs, 0644)
+	if err != nil {
+		log.Fatal(err)
+	}
 }
