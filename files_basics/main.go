@@ -66,7 +66,7 @@ func main() {
 
 	file, err = os.OpenFile(
 		"b.txt",
-		os.O_WRONLY | os.O_TRUNC | os.O_CREATE,
+		os.O_WRONLY|os.O_TRUNC|os.O_CREATE,
 		0644,
 	)
 	if err != nil {
@@ -83,7 +83,7 @@ func main() {
 
 	//using ioutils
 	bs := []byte("Go programming is cool!")
-	err = ioutil.WriteFile("c.txt", bs , 0644)
+	err = ioutil.WriteFile("c.txt", bs, 0644)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -91,7 +91,7 @@ func main() {
 	//using bufio
 	file, err = os.OpenFile(
 		"my_file.txt",
-		os.O_WRONLY | os.O_CREATE,
+		os.O_WRONLY|os.O_CREATE,
 		0644,
 	)
 	if err != nil {
@@ -100,7 +100,7 @@ func main() {
 	defer file.Close()
 
 	bufferedWriter := bufio.NewWriter(file)
-	bs = []byte{97,98,99} // use () for string and {} for actual bytes
+	bs = []byte{97, 98, 99} // use () for string and {} for actual bytes
 	bytesWritten, err := bufferedWriter.Write(bs)
 	if err != nil {
 		log.Fatal(err)
