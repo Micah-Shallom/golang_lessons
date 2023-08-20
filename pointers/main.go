@@ -2,9 +2,9 @@ package main
 
 import "fmt"
 
-func pointer_functions(){
+func pointer_functions() {
 	x := 8
-	p := &x 
+	p := &x
 }
 
 func main() {
@@ -20,20 +20,19 @@ func main() {
 	_ = ptr1
 
 	p := new(int) //another way of declaring a pointer
-	x =  100
+	x = 100
 	p = &x
-	fmt.Printf("p is of type %T with a value of %v\n",p,p)
+	fmt.Printf("p is of type %T with a value of %v\n", p, p)
 
 	*p = 90 //equivalent to x = 90
-	fmt.Println(x, *p)  
-
+	fmt.Println(x, *p)
 
 	//Pointer -> Pointer Comparison
 	a := 10
 	p1 := &a
 	pp1 := &p1
-	fmt.Printf("Value of p1: %v, Address of p1: %p\n",p1,&p1)
-	fmt.Printf("Value of pp1: %v, Address of pp1: %p\n",pp1,&pp1)
+	fmt.Printf("Value of p1: %v, Address of p1: %p\n", p1, &p1)
+	fmt.Printf("Value of pp1: %v, Address of pp1: %p\n", pp1, &pp1)
 
 	fmt.Printf("*p1 is %v\n", *p1)
 	fmt.Printf("*pp1 is %v\n", *pp1)
@@ -46,7 +45,7 @@ func main() {
 	//Comparing Pointers - two pointers are equal if they point to the same value or nil
 
 	var p2 *int
-	fmt.Printf("%#v\n",p2) //equals nil
+	fmt.Printf("%#v\n", p2) //equals nil
 
 	y := 5
 	p2 = &y
@@ -55,7 +54,7 @@ func main() {
 	p3 := &z
 
 	fmt.Println(p2 == p3) //false
-	
+
 	p4 := &y
 	fmt.Println(p2 == p4) //true
 
