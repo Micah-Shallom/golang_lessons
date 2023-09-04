@@ -7,7 +7,7 @@ import (
 
 
 type Rectangle struct {
-	width, height float64
+	width, height float64 
 }
 
 type Circle struct {

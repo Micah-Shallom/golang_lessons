@@ -1,33 +1,20 @@
 package main
 
 import (
-	// "fmt"
-	"io/ioutil"
-	"log"
-	"os"
+	"fmt"
+	"math"
 )
 
+type Circle struct {
+	radius float64
+}
+
+func (c Circle) area() float64{
+	return math.Pi * math.Pow(c.radius, 2)
+}
+
 func main(){
-	file, err := os.OpenFile(
-		"z.txt",
-		os.O_APPEND | os.O_CREATE | os.O_WRONLY,
-		0644,
-	)
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer file.Close()
-
-	byteSlice := []byte("My name is Shallom")
-	byteWritten, err := file.Write(byteSlice)
-	if err != nil {
-		log.Fatal(err)
-	}
-	log.Printf("The number of written bytes are: %d\n", byteWritten)
-
-	bs := []byte("Go programming is cool i swear")
-	err = ioutil.WriteFile("y.txt", bs, 0644)
-	if err != nil {
-		log.Fatal(err)
-	}
+	c1 := Circle{radius: 1.2}
+	area := c1.area()
+	fmt.Println(area)
 }
