@@ -50,7 +50,7 @@ func main() {
 	fmt.Println(accounts)
 
 	names := [...]string{5: "Shallom"}
-	fmt.Println(names)
+	fmt.Printf("%#v\n",names)
 
 	cities := [...]string{
 		5: "Kaduna",

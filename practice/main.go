@@ -1,20 +1,27 @@
 package main
 
-import (
-	"fmt"
-	"math"
-)
+import "fmt"
 
-type Circle struct {
-	radius float64
+type Book struct {
+	price float64
+	title string
 }
 
-func (c Circle) area() float64{
-	return math.Pi * math.Pow(c.radius, 2)
+func (b Book) vat() float64 {
+	return b.price * 0.09
 }
 
+func (b *Book) discount() float64 {
+	(*b).price = b.price * 0.9
+	return b.price
+}
+
+func (b *Book) changePrice(c float64) {
+	b.price = c
+}
 func main(){
-	c1 := Circle{radius: 1.2}
-	area := c1.area()
-	fmt.Println(area)
+	pH := Book{1.2, "Purple Hibiscus"}
+	pH.changePrice(100)
+	fmt.Println(pH.vat())
+	fmt.Println(pH.discount())
 }

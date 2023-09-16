@@ -122,5 +122,4 @@ func main() {
 	bufferedWriter.Flush()
 
 	// bufferedWriter.Reset(bufferedWriter) //used in a situation where we didnt flush the buffered content into a file, we reset it
-
 }
