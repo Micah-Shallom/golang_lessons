@@ -6,10 +6,12 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+	"runtime"
 	"strings"
+	"sync"
 )
 
-func checkAndSaveBody(url string) {
+func checkAndSaveBody(wg *sync.WaitGroup, url string) {
 	response, error := http.Get(url)
 
 	if error != nil {
@@ -32,16 +34,26 @@ func checkAndSaveBody(url string) {
 				log.Fatal(error)
 			}
 
+			
 		}
 	}
+	wg.Done()
 }
 
 func main() {
+	var wg sync.WaitGroup
 
 	urls := []string{"http://www.google.com", "http://www.medium.com", "http://www.facebook.com"}
 
+	wg.Add(len(urls))
+
+	
 	for _, url := range urls {
-		checkAndSaveBody(url)
+		go checkAndSaveBody(&wg, url)
 		fmt.Println(strings.Repeat("#", 20))
 	}
+
+	fmt.Println("No of Goroutines:", runtime.NumGoroutine())
+
+	wg.Wait()
 }
