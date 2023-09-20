@@ -32,9 +32,7 @@ func checkAndSaveBody(wg *sync.WaitGroup, url string) {
 			error = ioutil.WriteFile(file, bodyBytes, 0664)
 			if error != nil {
 				log.Fatal(error)
-			}
-
-			
+			}			
 		}
 	}
 	wg.Done()
