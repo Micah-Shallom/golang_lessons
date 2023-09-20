@@ -17,7 +17,7 @@ func main() {
 	fmt.Printf("%T, %T, %T\n", c, c1, c2)
 
 	go f1(10, c)
-
+ 
 	n := <- c
 	fmt.Println("Value recieved into the channel: ", n)
 }
