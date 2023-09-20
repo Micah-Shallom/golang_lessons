@@ -16,7 +16,9 @@ func f1(wg *sync.WaitGroup){
 	}
 
 	wg.Done()
+
 }
+
 func f2(){
 	fmt.Println("f2 goroutine started")
 	for i := 0; i < 3; i++ {
